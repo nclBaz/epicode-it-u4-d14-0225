@@ -34,12 +34,18 @@ Di contro però ha degli svantaggi abbastanza impattanti in termini di prestazio
 coinvolgono tutti gli animali il db deve fare del lavoro extra per unire i dati da entrambe le tabelle. Se invece ci sono query che come target hanno
 i cani o i gatti in maniera separata allora no problem, anzi si comporta molto bene
 * */
+@NamedQuery(name = "findAllNames", query = "SELECT a.name FROM Animal a")
+@NamedQuery(name = "findByNameStartingWith", query = "SELECT a FROM Animal a WHERE LOWER(a.name) LIKE LOWER(:partialName)")
 public abstract class Animal {
 	@Id
 	@GeneratedValue
 	protected long id;
 	protected String name;
 	protected int age;
+
+	@ManyToOne
+	@JoinColumn(name = "owner_id")
+	protected Owner owner;
 
 	public Animal() {
 	}

@@ -4,10 +4,8 @@ import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.Persistence;
 import riccardogulin.dao.AnimalsDAO;
-import riccardogulin.entities.Animal;
 import riccardogulin.entities.Cat;
 import riccardogulin.entities.Dog;
-import riccardogulin.exceptions.NotFoundException;
 
 public class Application {
 	private static final EntityManagerFactory emf = Persistence.createEntityManagerFactory("u4d14pu");
@@ -26,6 +24,7 @@ public class Application {
 		ad.save(tom);
 		ad.save(rex); */
 
+		/*
 		Animal animalFromDb = ad.findById(1);
 		System.out.println(animalFromDb);
 
@@ -36,7 +35,21 @@ public class Application {
 			System.out.println(ex.getMessage());
 		}
 		Dog dogFromDB = ad.findDogById(2);
-		System.out.println(dogFromDB);
+		System.out.println(dogFromDB);*/
+
+		ad.findAll().forEach(System.out::println);
+
+		ad.findAllDogs().forEach(System.out::println);
+
+		ad.findAllNames().forEach(System.out::println);
+
+		ad.findAnimalsByNameStartingWith("r").forEach(System.out::println);
+
+		ad.findAnimalsByNameAndUpdateName("Rex", "Ringhio");
+
+		ad.findAnimalsByNameAndDelete("Ringhio");
+
+		ad.findAnimalsByOwnerName("Aldo Baglio").forEach(System.out::println);
 
 		em.close();
 		emf.close();
