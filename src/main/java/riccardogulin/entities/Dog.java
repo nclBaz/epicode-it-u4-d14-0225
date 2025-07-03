@@ -1,10 +1,9 @@
 package riccardogulin.entities;
 
-import jakarta.persistence.DiscriminatorValue;
 import jakarta.persistence.Entity;
 
 @Entity
-@DiscriminatorValue("Cane") // <-- OPZIONALE. Serve per personalizzare il contenuto della Discriminator Column (default nome della classe, Dog)
+// @DiscriminatorValue("Cane") // <-- OPZIONALE. Serve per personalizzare il contenuto della Discriminator Column (default nome della classe, Dog)
 public class Dog extends Animal {
 	private double maxSpeed;
 

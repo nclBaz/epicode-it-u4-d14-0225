@@ -20,8 +20,8 @@ public class Application {
 		Dog ringhio = new Dog("Ringhio", 4, 20);
 		Cat tom = new Cat("Tom", 2, 2);
 		Dog rex = new Dog("Rex", 5, 30);
-		/*
-		ad.save(felix);
+
+		/* ad.save(felix);
 		ad.save(ringhio);
 		ad.save(tom);
 		ad.save(rex); */
@@ -30,7 +30,7 @@ public class Application {
 		System.out.println(animalFromDb);
 
 		try {
-			Cat catFromDb = ad.findCatById(2); // SELECT * FROM animals WHERE id = 2 AND tipo_animale = 'Gatto'
+			Cat catFromDb = ad.findCatById(1); // SELECT * FROM animals WHERE id = 2 AND tipo_animale = 'Gatto'
 			System.out.println(catFromDb);
 		} catch (NotFoundException ex) {
 			System.out.println(ex.getMessage());
